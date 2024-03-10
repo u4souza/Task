@@ -26,7 +26,8 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Quantidade de produtos que possuem a palavra 'água' no nome.")]
         public void Test1()
         {
-            int quantidade = produtos.Count();
+            int quantidade = produtos.Count(p => p.Nome.ToLower().Contains("água")
+);
 
             Assert.Equal(3, quantidade);
         }
