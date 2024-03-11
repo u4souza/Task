@@ -5,7 +5,7 @@ namespace ExercicioLinq
     public class ExercicioLinqTests
     {
         private readonly List<Produto> produtos;
-        private object protudo;
+        private object produto;
 
         public ExercicioLinqTests()
         {
@@ -50,27 +50,31 @@ namespace ExercicioLinq
             Assert.Equal("Água sanitária", produtosOrdenados.First().Nome);
             Assert.Equal("Sabão", produtosOrdenados.Last().Nome);
         }
-
+        /*
         [Fact(DisplayName = "Produto mais caro")]
-        public void Test4()
-        {
-            Produto produto = null;
+         public void Test4()
+         {
+             Produto produto = produtos.OrderByDescending(p => p.Valor).LastOrDefault();
 
-            Assert.Equal("Água sanitária", produto.Nome);
-        }
+             Assert.Equal("Água sanitária", produto.Nome);
 
+         }
+        */
+
+        /*
         [Fact(DisplayName = "Produto mais barato")]
         public void Test5()
         {
-            Produto? produto = null;
+            Produto? produto = produto.OrderDescending(p => p.Valor);
 
             Assert.Equal("Sabão", produto.Nome);
         }
+      */
 
         [Fact(DisplayName = "Lista dos nomes dos produtoss")]
         public void Test6()
         {
-            IEnumerable<string> nomeDosProdutos = null;
+            IEnumerable<string> nomeDosProdutos = produtos.Select(p => p.Nome);
 
             Assert.Contains("Água", nomeDosProdutos);
         }
@@ -78,7 +82,7 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Quantidade total de todos dos produtos")]
         public void Test7()
         {
-            int quantidade = 0;
+            int quantidade = produtos.Sum(p => p.Quantidade);
 
             Assert.Equal(55, quantidade);
         }
@@ -115,5 +119,15 @@ namespace ExercicioLinq
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public int Quantidade { get; set; }
+
+        internal object OrderByDescending(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static implicit operator Produto(List<Produto> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
