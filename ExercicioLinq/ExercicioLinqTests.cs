@@ -112,7 +112,7 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Verifica se o produto 'pão' está na lista")]
         public void Test10()
         {
-            bool existe = true;
+            bool existe = produtos.Exists(p => p.Nome == "pão");
 
             Assert.False(existe);
         }
