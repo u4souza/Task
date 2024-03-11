@@ -101,7 +101,9 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Nome dos produtos com valor maior 10.0")]
         public void Test9()
         {
-            IEnumerable<string> nomeDosProdutos = null;
+            IEnumerable<string> nomeDosProdutos = produtos
+                .Where(p => p.Valor > 10)
+                .Select(p => p.Nome); ;
 
             Assert.Contains("Balde", nomeDosProdutos);
             Assert.Contains("Água sanitária", nomeDosProdutos);
