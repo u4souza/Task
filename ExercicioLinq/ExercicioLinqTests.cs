@@ -5,6 +5,7 @@ namespace ExercicioLinq
     public class ExercicioLinqTests
     {
         private readonly List<Produto> produtos;
+        private object protudo;
 
         public ExercicioLinqTests()
         {
@@ -44,7 +45,7 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Produtos ordenados do mais caro para o mais barato.")]
         public void Test3()
         {
-            IEnumerable<Produto> produtosOrdenados = null;
+            IEnumerable<Produto> produtosOrdenados = produtos.OrderByDescending(p => p.Valor);
 
             Assert.Equal("Água sanitária", produtosOrdenados.First().Nome);
             Assert.Equal("Sabão", produtosOrdenados.Last().Nome);
