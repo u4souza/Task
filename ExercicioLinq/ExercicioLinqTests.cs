@@ -35,7 +35,7 @@ namespace ExercicioLinq
         [Fact(DisplayName = "Produtos ordenados por nome.")]
         public void Test2()
         {
-            IEnumerable<Produto> produtosOrdenados = null;
+            IEnumerable<Produto>? produtosOrdenados = produtos.OrderBy(p => p.Nome);
 
             Assert.Equal("Água", produtosOrdenados.First().Nome);
             Assert.Equal("Vassoura", produtosOrdenados.Last().Nome);
