@@ -5,7 +5,6 @@ namespace ExercicioLinq
     public class ExercicioLinqTests
     {
         private readonly List<Produto> produtos;
-        private object produto;
 
         public ExercicioLinqTests()
         {
@@ -50,26 +49,20 @@ namespace ExercicioLinq
             Assert.Equal("Água sanitária", produtosOrdenados.First().Nome);
             Assert.Equal("Sabão", produtosOrdenados.Last().Nome);
         }
-        /*
+        
         [Fact(DisplayName = "Produto mais caro")]
          public void Test4()
-         {
-             Produto produto = produtos.OrderByDescending(p => p.Valor).LastOrDefault();
-
-             Assert.Equal("Água sanitária", produto.Nome);
-
-         }
-        */
-
-        /*
+        {
+            var produto = produtos.MaxBy(p => p.Valor);
+        }
+        
         [Fact(DisplayName = "Produto mais barato")]
         public void Test5()
         {
-            Produto? produto = produto.OrderDescending(p => p.Valor);
+            var produto = produtos.MinBy(p => p.Valor);
 
-            Assert.Equal("Sabão", produto.Nome);
         }
-      */
+      
 
         [Fact(DisplayName = "Lista dos nomes dos produtoss")]
         public void Test6()
